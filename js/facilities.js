@@ -11,8 +11,10 @@ var block02 = new Process('<i class="far fa-clock"></i>',"Wait Few Sec.","color-
 var block03 = new Process('<i class="far fa-times-circle"></i>',"Close Ad","color-yellow");
 var block04 = new Process('<i class="fas fa-money-check-alt"></i>',"Claim Money","color-green");
 
-var arr = [block01,block02,block03,block04];
 
+
+HomeContent = ()=>{
+	var arr = [block01,block02,block03,block04];
 document.querySelector('.facilites').innerHTML+=`
     <div class="container">
 	    <div class="row">
@@ -37,4 +39,18 @@ for(var i in arr){
 		    </div>
 		</div>
 	`;
+}
+
+	
+}
+
+document.addEventListener("DOMContentLoaded", HomeContent);
+
+if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function() {
+        navigator.serviceWorker
+            .register("serviceWorker.js")
+            .then(res => console.log("service worker registered"))
+            .catch(err => console.log("service worker not registered", err));
+    });
 }
